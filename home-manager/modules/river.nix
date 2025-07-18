@@ -16,6 +16,7 @@
       spawn = [
         "waybar"
         "rivertile"
+        "'wlr-randr --output eDP-1 --scale 2'"
       ];
       map = {
         normal = {
@@ -25,13 +26,19 @@
           "Super+Shift E" = "exit";
 
           "Super F" = "toggle-fullscreen";
+
+          "Super+Alt+Control H" = "snap left";
+          "Super+Alt+Control J" = "snap down";
+          "Super+Alt+Control K" = "snap up";
+          "Super+Alt+Control L" = "snap right";
           
           "None XF86MonBrightnessUp" = "spawn 'brightnessctl set +5%'";
           "None XF86MonBrightnessDown" = "spawn 'brightnessctl set 5%-'";
         };
       };
     };
-    extraConfig = let
+    extraConfig =
+    let
       pow = base: exp:
         if exp == 0 then 1 else base * pow base (exp - 1);
         in ''
@@ -46,6 +53,7 @@
         riverctl map normal Super+Shift+Control ${num} toggle-viev-tags ${tag}
       ''
     ) 9)}
+    riverctl output-layout rivertile
     '';
   };
 }

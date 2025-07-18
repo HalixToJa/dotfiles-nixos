@@ -28,8 +28,6 @@
   networking.hostName = "zenbook";
   
   networking.networkmanager.enable = true;
-
-  services.openssh.enable = true;
   
   time.timeZone = "Europe/Warsaw";
 

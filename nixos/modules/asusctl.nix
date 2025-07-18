@@ -2,10 +2,7 @@
   services = {
     asusd = {
       enable = true;
-      enableUserService = true;
-    };
-    supergfxd = {
-      enable = false;
+      enableUserService = false;
     };
   };
 }

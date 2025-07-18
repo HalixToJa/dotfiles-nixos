@@ -28,11 +28,10 @@
     swaybg
     wofi
     waybar
+    wlr-randr
     
     #core
     home-manager
-
-    twemoji-color-font
   ];
 
   fonts.packages = with pkgs; [
@@ -40,8 +39,5 @@
     noto-fonts-color-emoji
     noto-fonts-lgc-plus
     noto-fonts-cjk-sans
-    fira-code
-    fira-code-symbols
-    twemoji-color-font
   ];
 }

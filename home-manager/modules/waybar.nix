@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+_: {
   programs.waybar = {
     enable = true;
     settings = {
@@ -9,9 +9,9 @@
         output = [
           "eDP-1"
         ];
-        modules-left = [ "custom/launcher" "cpu" "memory" "custom/media" "tray"];
-        modules-center = [ "river/tags" ];
-        modules-right = [ "backlight" "wireplumber" "clock" "battery" "custom/power" ];
+        modules-left = ["custom/launcher" "cpu" "memory" "custom/media" "tray"];
+        modules-center = ["river/tags"];
+        modules-right = ["backlight" "wireplumber" "clock" "battery" "custom/power"];
 
         "wireplumber" = {
           tooltip = false;
@@ -20,8 +20,8 @@
           format-muted = "";
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           format-icons = {
-			        default = ["" "" ""];
-	        };
+            default = ["" "" ""];
+          };
         };
 
         "river/tags" = {
@@ -48,16 +48,16 @@
     };
     style = ''
       #wireplumber {
-	      margin-top: 6px;
+       margin-top: 6px;
       	margin-left: 8px;
         margin-right: 8px;
       	padding-left: 10px;
       	padding-right: 10px;
-	      margin-bottom: 6px;
-    	  border-radius: 10px;
+       margin-bottom: 6px;
+       border-radius: 10px;
       	transition: none;
-	      color: #1A1826;
-    	  background: #FAE3B0;
+       color: #1A1826;
+       background: #FAE3B0;
       }
     '';
   };

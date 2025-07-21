@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+_: {
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -32,7 +32,7 @@
           node.latency = "512/44100";
           resample.quality = 1;
         };
-      };    
+      };
     };
   };
 }

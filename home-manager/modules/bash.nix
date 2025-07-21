@@ -1,8 +1,7 @@
 {
   programs.bash = {
     enable = true;
-    shellAliases =
-    let
+    shellAliases = let
       flakePath = "~/nix";
     in {
       rebuild = "sudo nixos-rebuild switch --flake ${flakePath}";

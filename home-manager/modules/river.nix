@@ -1,6 +1,7 @@
-{ config, pkgs, inputs, ... }: {
+{ config, chaotic, pkgs, inputs, ... }: {
   wayland.windowManager.river = {
     enable = true;
+    package = pkgs.river_git;
     xwayland.enable = true;
     settings = {
       rule-qdd = {
@@ -16,7 +17,7 @@
       spawn = [
         "waybar"
         "rivertile"
-        "'wlr-randr --output eDP-1 --scale 2'"
+        "'wlr-randr --output eDP-1 --scale 2 --adaptive-sync enabled'"
       ];
       map = {
         normal = {
@@ -34,6 +35,10 @@
           
           "None XF86MonBrightnessUp" = "spawn 'brightnessctl set +5%'";
           "None XF86MonBrightnessDown" = "spawn 'brightnessctl set 5%-'";
+
+          "None XF86AudioRaiseVolume" = "spawn 'wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+'";
+          "None XF86AudioLowerVolume" = "spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'";
+          "None XF86AudioMute" = "spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'";
         };
       };
     };

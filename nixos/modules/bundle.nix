@@ -6,5 +6,6 @@
     ./steam.nix
     ./kde.nix
     ./asusctl.nix
+    ./pipewire.nix
   ];
 }

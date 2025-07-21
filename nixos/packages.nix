@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, chaotic, ...}: {
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -24,20 +24,20 @@
     kdePackages.konsole
 
     #river
-    river
+    river_git
     swaybg
     wofi
     waybar
     wlr-randr
+    wireplumber
     
     #core
     home-manager
   ];
 
   fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-color-emoji
-    noto-fonts-lgc-plus
-    noto-fonts-cjk-sans
+    maple-mono.truetype
+    maple-mono.NF-unhinted
+    maple-mono.NF-CN-unhinted
   ];
 }

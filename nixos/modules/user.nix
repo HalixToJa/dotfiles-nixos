@@ -1,7 +1,6 @@
-{ pkgs, ...}: {
+_: {
   users.users.halix = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = ["networkmanager" "wheel"];
   };
 }

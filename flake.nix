@@ -28,12 +28,13 @@
       ];
     };
 
-    homeConfigurations.halix = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.halix = home-manager.lib.homeManagerConfiguration rec {
       pkgs = nixpkgs.legacyPackages.${system};
       extraSpecialArgs = {inherit inputs;};
       modules = [
         ./home-manager/home.nix
         inputs.chaotic.homeManagerModules.default
+        {nix.package = pkgs.nix;}
       ];
     };
 

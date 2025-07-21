@@ -24,10 +24,8 @@
     kdePackages.konsole
 
     #river
-    river_git
     swaybg
     wofi
-    waybar
     wlr-randr
     wireplumber
 

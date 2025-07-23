@@ -1,8 +1,7 @@
 {
   imports = [
+    ./hyprland/bundle.nix
     ./bash.nix
     ./helix.nix
-    ./river.nix
-    ./waybar.nix
   ];
 }

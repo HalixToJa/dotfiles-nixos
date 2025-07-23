@@ -15,6 +15,7 @@
     brightnessctl
     linuxKernel.packages.linux_6_15.cpupower
     bash
+    wireplumber
 
     #gejming
     protonup-qt
@@ -22,12 +23,6 @@
     #kde
     kdePackages.kdeconnect-kde
     kdePackages.konsole
-
-    #river
-    swaybg
-    wofi
-    wlr-randr
-    wireplumber
 
     #core
     home-manager

@@ -12,7 +12,7 @@ _: {
         ];
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "clock" ];
-        modules-right = [ "WirePlumber" "bluetooth" "network" "battery" ];
+        modules-right = [ "Tray" "WirePlumber" "bluetooth" "network" "battery" ];
       };
     };
     style = ''

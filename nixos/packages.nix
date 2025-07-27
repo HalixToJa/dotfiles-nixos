@@ -7,6 +7,12 @@
     (discord.override {withVencord = true;})
     librewolf-bin
 
+    #hyprland
+    xdg-desktop-portal-hyprland
+    xdg-desktop-portal-gtk
+    xorg.xrdb
+    dconf
+
     # cli
     fastfetch
     git
@@ -20,10 +26,6 @@
     #gejming
     protonup-qt
 
-    #kde
-    kdePackages.kdeconnect-kde
-    kdePackages.konsole
-
     #core
     home-manager
   ];
@@ -32,6 +34,9 @@
     maple-mono.truetype
     maple-mono.NF-unhinted
     maple-mono.NF-CN-unhinted
+    noto-fonts-emoji
+    noto-fonts-cjk-sans
+    noto-fonts
     dm-mono
   ];
 }

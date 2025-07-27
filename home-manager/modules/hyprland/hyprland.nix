@@ -1,14 +1,14 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    alacritty_git
+    alacritty
     waybar
     grim
+    slurp
     dunst
     wofi
     wl-clipboard
-    xorg.xrdb
   ];
-  
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -30,7 +30,7 @@
             ",XF86MonBrightnessUp,exec,brightnessctl set +1%"
             ",XF86AudioMute,exec,wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
             ",XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-            ",XF86AudioRaiseVolume,exec,wpct set-volume -1 1 @DEFAULT_AUDIO_SINK@ 5%+"
+            ",XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
 
             # workspace
             "$mainMod, left, movefocus, l"
@@ -57,15 +57,17 @@
             "$mainMod SHIFT, 6, movetoworkspace, 6"
             "$mainMod SHIFT, 7, movetoworkspace, 7"
             "$mainMod SHIFT, 8, movetoworkspace, 8"
-            "$mainMod SHIFT, 0, movetoworkspace, 10"
             "$mainMod SHIFT, 9, movetoworkspace, 9"
+            "$mainMod SHIFT, 0, movetoworkspace, 10"
         ];
     };
     extraConfig = ''
     bind = , Print, exec, grim - | wl-copy
     bind = SHIFT, Print, exec, grim -g "$(slurp)" - | wl-copy
+    #bindit = $mainMod, SUPER_L, exec, pkill -SIGUSR1 waybar
+    #bindirt = $mainMod, SUPER_L, exec, pkill -SIGUSR1 waybar
+    bind = $mainMod, B, exec, pkill -SIGUSR1 waybar 
 
-    # Monitor
     monitorv2 {
         output = eDP-1
         mode = 2880x1800@120
@@ -81,6 +83,7 @@
     # Autostart
 
     exec-once = dunst
+    exec-once = waybar
 
     # Input config
     input {
@@ -101,13 +104,17 @@
 
     general {
 
-        gaps_in = 5
-        gaps_out = 10
+        gaps_in = 0
+        gaps_out = 0
         border_size = 2
-        col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-        col.inactive_border = rgba(595959aa)
+        col.active_border = rgba(CDCDCDaa)
+        col.inactive_border = rgba(121212aa)
 
         layout = dwindle
+    }
+    dwindle {
+        pseudotile = yes
+        preserve_split = yes
     }
 
     animations {
@@ -122,14 +129,15 @@
         animation = workspaces, 1, 3.5, ease
     }
 
-    dwindle {
-        pseudotile = yes
-        preserve_split = yes
-    }
-
     gestures {
         workspace_swipe = false
     }
+
+    bindm = $mainMod, mouse:272, movewindow
+    bindm = $mainMod, mouse:273, resizewindow
+    bindm = ALT, mouse:272, resizewindow
+
+    env = ELECTRON_OZONE_PLATFORM_HINT,wayland
         '';
   };
 }

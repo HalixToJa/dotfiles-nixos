@@ -24,5 +24,8 @@
         file = "p10k.zsh";
       }
     ];
+    initContent = "
+      fastfetch --config paleofetch
+    ";
   };
 }

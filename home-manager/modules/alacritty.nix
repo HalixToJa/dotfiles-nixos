@@ -7,6 +7,7 @@ _: {
           family = "Maple Mono";
           style = "Regular";
         };
+        size = 10;
       };
     };
   };

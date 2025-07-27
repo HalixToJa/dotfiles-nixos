@@ -1,0 +1,71 @@
+_: {
+  programs.hyprlock = {
+    enable = true;
+    extraConfig = ''
+      $text_color = rgba(FFDAD6FF)
+$entry_background_color = rgba(41000311)
+$entry_border_color = rgba(896E6C55)
+$entry_color = rgba(FFDAD6FF)
+$font_family = Maple Mono
+$font_family_clock = Maple Mono
+$font_material_symbols = Maple Mono
+
+background {
+    color = rgba(181818FF)
+}
+input-field {
+    monitor =
+    size = 250, 50
+    outline_thickness = 2
+    dots_size = 0.1
+    dots_spacing = 0.3
+    outer_color = $entry_border_color
+    inner_color = $entry_background_color
+    font_color = $entry_color
+    fade_on_empty = true
+
+    position = 0, 20
+    halign = center
+    valign = center
+}
+
+label { # Clock
+    monitor =
+    text = $TIME
+    color = $text_color
+    font_size = 65
+    font_family = $font_family_clock
+
+    position = 0, 300
+    halign = center
+    valign = center
+}
+label { # Date
+    monitor =
+    text = cmd[update:5000] date +"%A, %B %d"
+    color = $text_color
+    font_size = 17
+    font_family = $font_family_clock
+
+    position = 0, 240
+    halign = center
+    valign = center
+}
+
+label { # User
+    monitor =
+    text =     $USER
+    color = $text_color
+    outline_thickness = 2
+    dots_size = 0.2 # Scale of input-field height, 0.2 - 0.8
+    dots_spacing = 0.2 # Scale of dots' absolute size, 0.0 - 1.0
+    dots_center = true
+    font_size = 20
+    font_family = $font_family
+    position = 0, 50
+    halign = center
+    valign = bottom
+}
+    '';
+  };
+}

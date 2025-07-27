@@ -16,8 +16,8 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    name = "Catppuccin-Mocha-Light-Cursors";
-    package = pkgs.catppuccin-cursors.mochaLight;
+    name = "Catppuccin-Mocha-Dark-Cursors";
+    package = pkgs.catppuccin-cursors.mochaDark;
     size = 16;
   };
 

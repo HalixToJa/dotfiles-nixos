@@ -84,6 +84,7 @@
 
     exec-once = dunst
     exec-once = waybar
+    exec-once = hypridle
 
     # Input config
     input {

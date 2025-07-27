@@ -1,8 +1,9 @@
 {
   imports = [
     ./hypr/bundle.nix
-    ./bash.nix
+    ./zsh.nix
     ./helix.nix
+    ./alacritty.nix
     ./waybar.nix
     ./theme.nix
   ];

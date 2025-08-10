@@ -23,6 +23,8 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    package = pkgs.mesa_git;
+    package32 = pkgs.mesa32_git;
   };
 
   services.xserver.videoDrivers = ["amdgpu"];

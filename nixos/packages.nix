@@ -6,6 +6,9 @@
   environment.systemPackages = with pkgs; [
     (discord.override {withVencord = true;})
     librewolf-bin
+    gnome-tweaks
+    strawberry
+    tagger
 
     #hyprland
     xdg-desktop-portal-hyprland
@@ -19,13 +22,10 @@
     wget
     btop
     brightnessctl
-    linuxKernel.packages.linux_6_15.cpupower
+    linuxKernel.packages.linux_6_16.cpupower
     bash
     wireplumber
-
-    #gejming
-    protonup-qt
-
+    
     #core
     home-manager
   ];

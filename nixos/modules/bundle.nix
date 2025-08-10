@@ -6,5 +6,6 @@
     ./steam.nix
     ./asusctl.nix
     ./pipewire.nix
+    ./gnome.nix
   ];
 }

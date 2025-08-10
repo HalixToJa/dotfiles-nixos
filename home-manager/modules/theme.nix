@@ -1,16 +1,17 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   gtk = {
     enable = true;
     theme = {
-      name = "Breeze-Dark";
-      package = pkgs.libsForQt5.breeze-gtk;
+      name = "Adwaita";
+      package = pkgs.gnome-themes-extra;
     };
     cursorTheme = {
       name = "Catppuccin-Mocha-Dark-Cursors";
       package = pkgs.catppuccin-cursors.mochaDark;
     };
-    gtk3 = {
-      extraConfig.gtk-application-prefer-dark-theme = true;
+    iconTheme = {
+      name = "oomox-gruvbox-dark";
+      package = pkgs.gruvbox-dark-icons-gtk;
     };
   };
 
@@ -20,11 +21,8 @@
     package = pkgs.catppuccin-cursors.mochaDark;
     size = 16;
   };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      gtk-theme = "Breeze-Dark";
-      color-scheme = "prefer-dark";
-    };
+   qt = {
+    enable = true;
+    style.name = "adwaita-dark";
   };
 }

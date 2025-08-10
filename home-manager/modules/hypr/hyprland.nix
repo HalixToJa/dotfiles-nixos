@@ -5,9 +5,10 @@
     dunst
     wofi
     wl-clipboard
-  ];
+    nautilus
+    ];
 
-  wayland.windowManager.hyprland = {
+    wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
@@ -66,6 +67,8 @@
     #bindirt = $mainMod, SUPER_L, exec, pkill -SIGUSR1 waybar
     bind = $mainMod, B, exec, pkill -SIGUSR1 waybar 
 
+#    monitor = eDP-1, disable
+
     monitorv2 {
         output = eDP-1
         mode = 2880x1800@120
@@ -73,6 +76,12 @@
         scale = 2
         vrr = 1
     }
+#    monitorv2 {
+#        output = HDMI-A-1
+#        mode = 1920x1080@60
+#        position = -2880x0
+#        scale = 1
+#    }
     
     xwayland {
         force_zero_scaling = 1
@@ -83,6 +92,7 @@
     exec-once = dunst
     exec-once = waybar
     exec-once = hypridle
+    exec-once = xrdb ~/.Xresources
 
     # Input config
     input {
@@ -105,7 +115,7 @@
 
         gaps_in = 0
         gaps_out = 0
-        border_size = 2
+        border_size = 0
         col.active_border = rgba(CDCDCDaa)
         col.inactive_border = rgba(121212aa)
 
@@ -117,7 +127,7 @@
     }
 
     animations {
-        enabled = yes
+        enabled = no
 
         bezier = ease,0.4,0.02,0.21,1
 

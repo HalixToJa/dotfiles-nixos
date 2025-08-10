@@ -6,6 +6,8 @@
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +27,7 @@
       modules = [
         ./nixos/configuration.nix
         inputs.chaotic.nixosModules.default
+        inputs.spicetify-nix.nixosModules.spicetify
       ];
     };
 

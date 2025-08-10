@@ -6,6 +6,6 @@
     ./helix.nix
     ./alacritty.nix
     ./waybar.nix
-    ./theme.nix
+    #./theme.nix
   ];
 }

@@ -7,5 +7,6 @@
     ./asusctl.nix
     ./pipewire.nix
     ./gnome.nix
+    ./spicetify.nix
   ];
 }

@@ -16,6 +16,12 @@
 
   boot.kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride {mArch = "ZEN4";};
 
+  services.scx = {
+    enable = true;
+    scheduler = "scx_lavd";
+    package = pkgs.scx-full_git;
+  };
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   security.polkit.enable = true;
@@ -26,6 +32,8 @@
     package = pkgs.mesa_git;
     package32 = pkgs.mesa32_git;
   };
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   services.xserver.videoDrivers = ["amdgpu"];
 

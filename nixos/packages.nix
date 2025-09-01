@@ -9,6 +9,9 @@
     gnome-tweaks
     strawberry
     tagger
+    pinta
+    nicotine-plus
+    zed-editor
 
     #gnome
     xdg-desktop-portal
@@ -18,11 +21,12 @@
     nordic
     adwaita-qt
     gnome-themes-extra
-    
+
 
     #hyprland
     xdg-desktop-portal-hyprland
     xorg.xrdb
+    xorg.xprop
     dconf
 
     # cli
@@ -34,7 +38,8 @@
     linuxKernel.packages.linux_6_16.cpupower
     bash
     wireplumber
-    
+    tree
+
     #core
     home-manager
   ];

@@ -4,10 +4,10 @@ _: {
     settings = {
       font = {
         normal = {
-          family = "Maple Mono";
+          family = "DM Mono";
           style = "Regular";
         };
-        size = 10;
+        size = 11;
       };
     };
   };

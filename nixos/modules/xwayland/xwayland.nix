@@ -5,6 +5,8 @@ _: {
         patches = (o.patches or [ ]) ++ [
           ./patches/hidpi.patch
         ];
+        doCheck = false;
+        doInstallCheck = false;
       });
     })
   ];

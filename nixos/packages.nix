@@ -12,6 +12,7 @@
     pinta
     nicotine-plus
     zed-editor
+    element-desktop
 
     #gnome
     xdg-desktop-portal

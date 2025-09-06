@@ -18,8 +18,14 @@
 
   services.scx = {
     enable = true;
-    scheduler = "scx_lavd";
+    scheduler = "scx_bpfland";
     package = pkgs.scx-full_git;
+    extraArgs = [
+      "-s 5000"
+      "-S 5000"
+      "-l 5000"
+      "-m performance"
+    ];
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

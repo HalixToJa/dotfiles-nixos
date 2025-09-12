@@ -20,7 +20,7 @@
     enable = true;
     scheduler = "scx_lavd";
     extraArgs = [
-      "--autopilot";
+      "--autopilot"
     ];
     package = pkgs.scx-full_git;
   };

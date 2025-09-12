@@ -14,18 +14,15 @@
     ./modules/bundle.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride {mArch = "ZEN4";};
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-lts.cachyOverride {mArch = "ZEN4";};
 
   services.scx = {
     enable = true;
-    scheduler = "scx_bpfland";
-    package = pkgs.scx-full_git;
+    scheduler = "scx_lavd";
     extraArgs = [
-      "-s 5000"
-      "-S 5000"
-      "-l 5000"
-      "-m performance"
+      "--autopilot";
     ];
+    package = pkgs.scx-full_git;
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

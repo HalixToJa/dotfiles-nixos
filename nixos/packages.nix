@@ -40,6 +40,7 @@
     bash
     wireplumber
     tree
+    sbctl
 
     #core
     home-manager

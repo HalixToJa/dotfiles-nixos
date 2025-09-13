@@ -9,8 +9,5 @@
     ./gnome.nix
     ./spicetify.nix
     ./firewall.nix
-    #./wlroots/wlroots.nix
-    #./xwayland/xwayland.nix
-    #./slskd.nix
   ];
 }

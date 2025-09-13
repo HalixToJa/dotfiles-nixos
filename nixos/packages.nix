@@ -8,7 +8,6 @@
     librewolf-bin
     gnome-tweaks
     strawberry
-    tagger
     pinta
     nicotine-plus
     zed-editor
@@ -23,20 +22,13 @@
     adwaita-qt
     gnome-themes-extra
 
-
-    #hyprland
-    xdg-desktop-portal-hyprland
-    xorg.xrdb
-    xorg.xprop
-    dconf
-
     # cli
     fastfetch
     git
     wget
     btop
     brightnessctl
-    linuxKernel.packages.linux_6_16.cpupower
+    linuxKernel.packages.linux_6_12.cpupower
     bash
     wireplumber
     tree

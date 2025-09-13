@@ -9,7 +9,7 @@
       gedit
       epiphany
       gnome-tour
-      gnome-terminal
+      gnome-console
       gnome-music
     ]);
   };

@@ -7,7 +7,7 @@ _: {
           family = "DM Mono";
           style = "Regular";
         };
-        size = 11;
+        size = 10;
       };
     };
   };

@@ -6,8 +6,7 @@
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
     extraCompatPackages = with pkgs; [
-      proton-cachyos_x86_64_v3
-      steamtinkerlaunch
+      proton-cachyos_x86_64_v4
     ];
   };
 

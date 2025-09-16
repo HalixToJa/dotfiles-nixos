@@ -22,7 +22,7 @@
     extraArgs = [
       "--autopilot"
     ];
-    package = pkgs.scx-full_git;
+    package = pkgs.scx.rustscheds;
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];

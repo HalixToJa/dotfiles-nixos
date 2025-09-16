@@ -6,7 +6,7 @@
     ./steam.nix
     ./asusctl.nix
     ./pipewire.nix
-    ./gnome.nix
+    ./hyprland.nix
     ./spicetify.nix
     ./firewall.nix
   ];

@@ -6,21 +6,12 @@
   environment.systemPackages = with pkgs; [
     (discord.override {withVencord = true;})
     librewolf-bin
-    gnome-tweaks
     strawberry
     pinta
     nicotine-plus
     zed-editor
     element-desktop
-
-    #gnome
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-gnome
-    catppuccin-cursors.mochaDark
-    nordic
-    adwaita-qt
-    gnome-themes-extra
+    mangohud
 
     # cli
     fastfetch

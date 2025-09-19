@@ -6,6 +6,7 @@
     rofi
     wl-clipboard
     playerctl
+    kdePackages.dolphin
     ];
   wayland.windowManager.hyprland = {
     enable = true;
@@ -13,13 +14,14 @@
     xwayland.enable = true;
     settings = {
         "$mainMod" = "SUPER";
-        "$terminal" = "alacritty";
+        "$terminal" = "kitty";
         "$exec" = "exec, uwsm app --";
 
         bind = [
             "$mainMod, F, fullscreen"
+            "$mainMod, G, togglefloating"
 
-            "$mainMod, RETURN, $exec alacritty"
+            "$mainMod, RETURN, $exec $terminal"
             "$mainMod, Q, killactive"
             "$mainMod SHIFT, E, exit"
             "$mainMod, SPACE, $exec rofi -show drun"
@@ -64,21 +66,23 @@
     bind = , Print, exec, grim - | wl-copy
     bind = SHIFT, Print, exec, grim -g "$(slurp)" - | wl-copy
 
-     monitor = eDP-1, disable
+# monitor = eDP-1, disable
 
-#    monitorv2 {
-#        output = eDP-1
-#        mode = 2880x1800@120
-#        position = 0x0
-#        scale = 2
-#        vrr = 1
-#   }
+ monitor = HDMI-A-1, disable    
+
     monitorv2 {
-        output = HDMI-A-1
-        mode = 1920x1080@60
-        position = 0x1800
-        scale = 1
+        output = eDP-1
+        mode = 2880x1800@120
+        position = 0x0
+        scale = 2
+        vrr = 1
     }
+ #   monitorv2 {
+ #       output = HDMI-A-1
+ #       mode = 1920x1080@60
+ #       position = 0x1800
+ #       scale = 1
+ #   }
 
     xwayland {
         force_zero_scaling = 1
@@ -87,6 +91,7 @@
     # Autostart
     exec-once = uwsm app -- waybar
     exec-once = systemctl --user enable --now hypridle.service
+    exec-once = systemctl --user enable --now hyprpaper.service
 
     # Input config
     input {
@@ -106,8 +111,8 @@
         gaps_in = 4
         gaps_out = 8
         border_size = 2
-        col.active_border = rgba(d8cab8aa)
-        col.inactive_border = rgba(ac82e9aa)
+        col.active_border = rgba(555169ff)
+        col.inactive_border = rgba(473738ff)
 
         layout = dwindle
     }
@@ -116,10 +121,30 @@
         preserve_split = yes
     }
 
-    cursor {
-        no_hardware_cursors = true    
+    decoration {
+        rounding = 10
+        windowrule = opacity 0.8, initialTitle:^(kitty.*)$
+
+        blur {
+            enabled = true
+            size = 6
+            passes = 3
+            new_optimizations = on
+            ignore_opacity = on
+            xray = false
+        }
+
+        shadow {
+            enabled = false
+        }
     }
-    
+
+    layerrule = blur, waybar
+
+    cursor {
+        no_hardware_cursors = true
+    }
+
     animations {
         enabled = no
 

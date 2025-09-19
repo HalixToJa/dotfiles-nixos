@@ -1,12 +1,12 @@
 {
   imports = [
-#    ./gnome/bundle.nix
     ./zsh.nix
     ./helix.nix
-    ./alacritty.nix
+    ./kitty.nix
     ./hyprland.nix
     ./hypridle.nix
     ./hyprlock.nix
+    ./hyprpaper.nix
     ./waybar.nix
     ./rofi.nix
   ];

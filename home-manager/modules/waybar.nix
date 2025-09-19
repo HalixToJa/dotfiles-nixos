@@ -12,21 +12,41 @@ _: {
       height = 0;
       margin-bottom = 0;
       margin-top = 8;
-      modules-left = [ "hyprland/workspaces" ];
+      margin-left = 8;
+      margin-right = 8;
+      modules-left = [ "hyprland/workspaces" "custom/playerctl" ];
       modules-center = [ "clock" ];
-      modules-right = [ "backlight" "network" "battery" "wireplumber" "tray" ];
+      modules-right = [ "backlight" "wireplumber" "battery" "network" "tray" ];
+
+      "custom/playerctl" = {
+        format = "<span>{}</span>";
+        return-type = "json";
+        max-length = 40;
+        exec = "playerctl -a metadata --format '{\"text\": \"󰝚 {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+        on-click = "playerctl play-pause";
+        on-click-right = "playerctl next";
+      };
 
       "hyprland/workspaces" = {
         all-outputs = false;
         tooltip = false;
       };
+
+      "network" = {
+          format-wifi = "  {bandwidthDownBits}";
+          format-ethernet = "󰈀 {bandwidthDownBits}";
+          format-disconnected = "󰤮 No Network";
+          interval = 5;
+          tooltip = false;
+      };
+
       "backlight" = {
-        format = "☼ {percent}%";
-        spacing = 10;
+        format = " {percent}%";
+        spacing = 0;
         tooltip = false;
       };
       "tray" = {
-        spacing = 10;
+        spacing = 0;
         tooltip = false;
       };
       "clock" = {
@@ -52,7 +72,7 @@ _: {
         };
         format = "{icon} {capacity}%";
         format-charging = "󰂄 {capacity}%";
-        format-plugged = "󰂄{capacity}%";
+        format-plugged = "󰂄 {capacity}%";
         format-alt = "{icon} {time}";
         format-full = "󱈑 {capacity}%";
         format-icons = [
@@ -66,10 +86,20 @@ _: {
     style = ''
       * {
         font-family: Maple Mono;
-        border-radius: 8;
+        border-radius: 8px;
         font-size: 14px;
         padding: 0px;
         background: transparent;
+      }
+
+      #custom-playerctl {
+        background-image: linear-gradient(to bottom, #27232b 100%);
+
+        margin: 6px;
+        margin-right: 0px;
+        padding: 4px 8px;
+        border-radius: 8px;
+        color: #E0AAB0;
       }
 
       window#waybar {
@@ -92,7 +122,7 @@ _: {
         margin-right: 0px;
         padding: 4px 8px;
         border-radius: 8px;
-        color: #d8cab8;
+        color: #E0AAB0;
 
         border-style: none;
         transition-duration: 120ms;
@@ -104,27 +134,31 @@ _: {
 
       #wireplumber:hover {
         background-image: linear-gradient(to bottom, #ac82e9 100%);
-        color: #141216;
+        color: #534856;
         transition-duration: 120ms;
       }
 
+      #tray {
+        margin-right: 6px;
+      }
+
       #tray menu {
-        background-color: #141216;
-        color: #d8cab8;
+        background-color: #534856;
+        color: #E0AAB0;
         padding: 4px;
       }
       #tray menu menuitem {
         background-image: linear-gradient(to bottom, #27232b 100%);
 
         margin: 3px;
-        color: #d8cab8;
+        color: #867089;
         border-radius: 4px;
         border-style: solid;
         border-color: #27232b;
       }
       #tray menu menuitem:hover {
         background-image: linear-gradient(to bottom, #27232b 100%);
-        color: #ac82e9;
+        color: #E0AAB0;
         font-weight: bold;
       }
 
@@ -133,21 +167,21 @@ _: {
         all: initial;
         min-width: 0;
         font-weight: bold;
-        color: #d8cab8;
+        color: #867089;
         margin-right: 0.2cm;
         margin-left: 0.2cm;
       }
 
       #workspaces button:hover {
         transition-duration: 120ms;
-        color: #8f56e1;
+        color: #E0AAB0;
       }
       #workspaces button.focused {
-        color: #ac82e9;
+        color: #E0AAB0;
         font-weight: bold;
       }
       #workspaces button.active {
-        color: #ac82e9;
+        color: #E0AAB0;
         font-weight: bold;
       }
       #workspaces button.urgent {
@@ -155,20 +189,21 @@ _: {
       }
 
       #battery {
-        background-color: #222222;
-        color: #d8cab8;
+        background-color: #27232b;
+        color: #E0AAB0;
       }
       #battery.warning,
       #battery.critical,
       #battery.urgent {
-        color: #d8cab8;
+        color: #E0AAB0;
         background-color: #fc4649;
       }
       #backlight {
-        color: #d8cab8;
-        background-color: #222222;
-        margin: 6px;
+        color: #E0AAB0;
+        background-color: #27232b;
         padding: 4px 8px;
+        margin: 6px;
+        margin-right: 0px;
         border-radius: 8px;
       }
     '';

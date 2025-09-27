@@ -6,8 +6,8 @@
     ./steam.nix
     ./asusctl.nix
     ./pipewire.nix
-    ./hyprland.nix
     ./spicetify.nix
     ./firewall.nix
+    ./river.nix
   ];
 }

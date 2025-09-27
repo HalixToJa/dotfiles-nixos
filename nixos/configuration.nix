@@ -5,8 +5,10 @@
   config,
   lib,
   pkgs,
+  pinned-firmware,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -22,8 +24,9 @@
     extraArgs = [
       "--autopilot"
     ];
-    package = pkgs.scx.full;
-  };
+
+   package = pkgs.scx.full;
+ };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -35,6 +38,8 @@
     package = pkgs.mesa_git;
     package32 = pkgs.mesa32_git;
   };
+
+  services.udisks2.enable = true;
 
   systemd.services.NetworkManager-wait-online.enable = false;
 

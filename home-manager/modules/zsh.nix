@@ -5,12 +5,6 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    profileExtra = ''
-      if uwsm check may-start && uwsm select; then
-        exec uwsm start default
-      fi
-    '';
-
     shellAliases =
       let
         flakePath = "~/nix";
@@ -31,7 +25,7 @@
       }
     ];
     initContent = "
-      fastfetch --config paleofetch
+      fastfetch
     ";
   };
 }

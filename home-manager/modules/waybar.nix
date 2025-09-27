@@ -8,13 +8,7 @@ _: {
         ];
       layer = "bottom";
       position = "top";
-      spacing = 0;
-      height = 0;
-      margin-bottom = 0;
-      margin-top = 8;
-      margin-left = 8;
-      margin-right = 8;
-      modules-left = [ "hyprland/workspaces" "custom/playerctl" ];
+      modules-left = [ "river/tags" "custom/playerctl" ];
       modules-center = [ "clock" ];
       modules-right = [ "backlight" "wireplumber" "battery" "network" "tray" ];
 
@@ -25,17 +19,19 @@ _: {
         exec = "playerctl -a metadata --format '{\"text\": \"󰝚 {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
         on-click = "playerctl play-pause";
         on-click-right = "playerctl next";
+        tooltip = false;
       };
 
-      "hyprland/workspaces" = {
-        all-outputs = false;
+      "river/tags" = {
+        hide-vacant = true;
+        num-tag = 9;
         tooltip = false;
       };
 
       "network" = {
           format-wifi = "  {bandwidthDownBits}";
           format-ethernet = "󰈀 {bandwidthDownBits}";
-          format-disconnected = "󰤮 No Network";
+          format-disconnected = "󰤮  No Network";
           interval = 5;
           tooltip = false;
       };
@@ -64,6 +60,7 @@ _: {
         ];
         format-muted = " ";
         tooltip = false;
+        on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
       };
       "battery" = {
         states = {
@@ -85,28 +82,30 @@ _: {
     };
     style = ''
       * {
-        font-family: Maple Mono;
-        border-radius: 8px;
+        font-family: DM Mono;
         font-size: 14px;
-        padding: 0px;
         background: transparent;
       }
 
       #custom-playerctl {
-        background-image: linear-gradient(to bottom, #27232b 100%);
-
-        margin: 6px;
-        margin-right: 0px;
-        padding: 4px 8px;
-        border-radius: 8px;
-        color: #E0AAB0;
+        color: #e9ecef;
+        margin-right: 6px;
+        margin-left: 6px;
       }
 
       window#waybar {
-        background-image: linear-gradient(to bottom, #141216 100%);
-        border-radius: 14px;
-        padding: 0px;
+        background-image: linear-gradient(to bottom, #000000 100%);
         border-style: none;
+      }
+
+      #network {
+        margin-right: 6px;
+        margin-left: 6px;
+      }
+
+      #tray {
+        margin-right: 6px;
+        margin-left: 6px;
       }
 
       #battery,
@@ -116,95 +115,65 @@ _: {
       #tray,
       #workspaces,
       #wireplumber {
-        background-image: linear-gradient(to bottom, #27232b 100%);
-
-        margin: 6px;
-        margin-right: 0px;
-        padding: 4px 8px;
-        border-radius: 8px;
-        color: #E0AAB0;
-
+        color: #e9ecef;
+        margin-right: 6px;
+        margin-left: 6px;
         border-style: none;
         transition-duration: 120ms;
       }
 
-      #clock {
-        margin-right: 6px;
-      }
-
       #wireplumber:hover {
-        background-image: linear-gradient(to bottom, #ac82e9 100%);
         color: #534856;
         transition-duration: 120ms;
       }
 
-      #tray {
-        margin-right: 6px;
-      }
-
       #tray menu {
-        background-color: #534856;
-        color: #E0AAB0;
-        padding: 4px;
+        color: #e9ecef;
       }
       #tray menu menuitem {
-        background-image: linear-gradient(to bottom, #27232b 100%);
-
-        margin: 3px;
         color: #867089;
-        border-radius: 4px;
-        border-style: solid;
-        border-color: #27232b;
       }
       #tray menu menuitem:hover {
-        background-image: linear-gradient(to bottom, #27232b 100%);
-        color: #E0AAB0;
+        color: #e9ecef;
         font-weight: bold;
       }
 
-      #workspaces button {
+      #tags button {
         transition-duration: 100ms;
         all: initial;
-        min-width: 0;
         font-weight: bold;
-        color: #867089;
-        margin-right: 0.2cm;
-        margin-left: 0.2cm;
+        color: #495057;
+        margin-right: 0.15cm;
+        margin-left: 0.15cm;
       }
 
-      #workspaces button:hover {
+      #tags button:hover {
         transition-duration: 120ms;
-        color: #E0AAB0;
+        color: #e9ecef;
       }
-      #workspaces button.focused {
-        color: #E0AAB0;
+      #tags button.focused {
+        color: #e9ecef;
         font-weight: bold;
       }
-      #workspaces button.active {
-        color: #E0AAB0;
-        font-weight: bold;
-      }
-      #workspaces button.urgent {
+      #tags button.urgent {
         color: #fcb167;
       }
 
       #battery {
-        background-color: #27232b;
-        color: #E0AAB0;
+        color: #e9ecef;
+        margin-right: 6px;
+        margin-left: 6px;
       }
       #battery.warning,
       #battery.critical,
       #battery.urgent {
-        color: #E0AAB0;
+        color: #e9ecef;
         background-color: #fc4649;
       }
       #backlight {
-        color: #E0AAB0;
-        background-color: #27232b;
-        padding: 4px 8px;
-        margin: 6px;
-        margin-right: 0px;
-        border-radius: 8px;
+        color: #e9ecef;
+        margin-right: 6px;
+        margin-left: 6px;
       }
     '';
   };

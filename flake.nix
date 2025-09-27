@@ -28,6 +28,11 @@
         ./nixos/configuration.nix
         inputs.chaotic.nixosModules.default
         inputs.spicetify-nix.nixosModules.spicetify
+        {
+          nixpkgs.overlays = [
+            (import ./nixos/overlays/linux-firmware.nix)
+          ];
+        }
       ];
     };
 

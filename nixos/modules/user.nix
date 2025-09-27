@@ -3,7 +3,7 @@
 
   users.users.halix = {
     isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel" "mpd"];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
   };
 }

@@ -12,18 +12,25 @@
     zed-editor
     element-desktop
     mangohud
+    vlc
+    prismlauncher
+    wine
 
     # cli
     fastfetch
     git
     wget
     btop
+    s-tui
+    cmatrix
     brightnessctl
     linuxKernel.packages.linux_6_12.cpupower
     bash
     wireplumber
     tree
     sbctl
+    usbutils
+    glib
 
     #core
     home-manager

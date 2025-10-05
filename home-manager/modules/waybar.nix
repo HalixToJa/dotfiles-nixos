@@ -8,9 +8,22 @@ _: {
         ];
       layer = "bottom";
       position = "top";
-      modules-left = [ "river/tags" "custom/playerctl" ];
+      modules-left = [ "river/tags" "custom/playerctl" "custom/audio_idle_inhibitor" ];
       modules-center = [ "clock" ];
       modules-right = [ "backlight" "wireplumber" "battery" "network" "tray" ];
+
+      "custom/audio_idle_inhibitor" = {
+      format = "{icon}";
+      exec = "sway-audio-idle-inhibit --dry-print-both-waybar";
+      exec-if = "which sway-audio-idle-inhibit";
+      return-type = "json";
+      format-icons = {
+			output = "";
+			input = "";
+			output-input = "  ";
+			none = "";
+			  };
+      };
 
       "custom/playerctl" = {
         format = "<span>{}</span>";

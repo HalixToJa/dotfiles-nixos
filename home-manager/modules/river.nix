@@ -5,6 +5,8 @@
     wl-clipboard
     playerctl
     kdePackages.dolphin
+    sway-audio-idle-inhibit
+    wbg
     ];
   services.kanshi = {
     enable = true;
@@ -61,10 +63,10 @@
           "None XF86AudioMute" = "spawn 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle'";
           "None XF86AudioLowerVolume" = "spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-'";
           "None XF86AudioRaiseVolume" = "spawn 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+'";
-          "Super Left" = "focus-viev left";
-          "Super Right" = "focus-viev right";
-          "Super Down" = "focus-viev down";
-          "Super Up" = "focus-viev up";
+          "Super Left" = "focus-view left";
+          "Super Right" = "focus-view right";
+          "Super Down" = "focus-view down";
+          "Super Up" = "focus-view up";
 
         };
       };
@@ -81,7 +83,9 @@
       spawn = [
         "kanshi"
         "waybar"
-        "hypridle"
+        "swayidle"
+        "sway-audio-idle-inhibit"
+        "'wbg ~/.wallpapers/black.png'"
       ];
       keyboard-layout = "pl";
     };

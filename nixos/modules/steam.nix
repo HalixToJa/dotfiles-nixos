@@ -7,8 +7,11 @@
     gamescopeSession.enable = true;
     extraCompatPackages = with pkgs; [
       proton-cachyos_x86_64_v4
+      steamtinkerlaunch
     ];
   };
+
+  services.udev.packages = with pkgs; [ steamPackages.steam ];
 
   hardware.steam-hardware.enable = true;
 

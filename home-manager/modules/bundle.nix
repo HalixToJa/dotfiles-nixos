@@ -9,5 +9,6 @@
     ./dunst.nix
     ./swayidle.nix
     ./swaylock.nix
+    ./starship.nix
   ];
 }

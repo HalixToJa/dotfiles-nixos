@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -10,8 +11,6 @@
       steamtinkerlaunch
     ];
   };
-
-  services.udev.packages = with pkgs; [ steamPackages.steam ];
 
   hardware.steam-hardware.enable = true;
 

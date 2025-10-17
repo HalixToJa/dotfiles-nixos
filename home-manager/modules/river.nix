@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     grim
     slurp
@@ -7,7 +8,7 @@
     kdePackages.dolphin
     sway-audio-idle-inhibit
     wbg
-    ];
+  ];
   services.kanshi = {
     enable = true;
     systemdTarget = "river-session.target";
@@ -44,7 +45,7 @@
     systemd.enable = true;
     xwayland.enable = true;
     settings = {
-    border-width = 2;
+      border-width = 2;
       declare-mode = [
         "normal"
       ];
@@ -83,39 +84,39 @@
       spawn = [
         "kanshi"
         "waybar"
-        "swayidle"
         "sway-audio-idle-inhibit"
         "'wbg ~/.wallpapers/black.png'"
       ];
       keyboard-layout = "pl";
     };
-    extraConfig = let
-  pow = base: exp:
-    if exp == 0
-    then 1
-    else base * pow base (exp - 1);
-  in ''
-      ${builtins.concatStringsSep "\n"
-      (builtins.genList (
-          i: let
-            num = toString (i + 1);
-            tag = toString (pow 2 i);
-          in ''
-            riverctl map normal Super ${num} set-focused-tags ${tag}
-            riverctl map normal Super+Shift ${num} spawn 'riverctl set-view-tags ${tag} && riverctl set-focused-tags ${tag}'
-            riverctl map normal Super+Control ${num} toggle-focused-tags ${tag}
-            riverctl map normal Super+Shift+Control ${num} toggle-viev-tags ${tag}
-          ''
-        )
-        9)}
-      #change pointer to yours from riverctl list-inputs
-      riverctl input 'pointer-2362-12300-ASUP1415:00_093A:300C_Touchpad' natural-scroll enabled
-      riverctl input 'pointer-2362-12300-ASUP1415:00_093A:300C_Touchpad' tap enabled
-      riverctl input 'pointer-2362-12300-ASUP1415:00_093A:300C_Touchpad' accel_profile enabled
-      riverctl map normal None Print spawn 'grim - | wl-copy'
-      riverctl map normal Shift Print spawn 'grim -g "$(slurp)" - | wl-copy'
-      riverctl spawn 'rivertile -outer-padding 0 -view-padding 0 -main-ratio 0.5'
-      riverctl output-layout rivertile
-    '';
+    extraConfig =
+      let
+        pow = base: exp: if exp == 0 then 1 else base * pow base (exp - 1);
+      in
+      ''
+        ${builtins.concatStringsSep "\n" (
+          builtins.genList (
+            i:
+            let
+              num = toString (i + 1);
+              tag = toString (pow 2 i);
+            in
+            ''
+              riverctl map normal Super ${num} set-focused-tags ${tag}
+              riverctl map normal Super+Shift ${num} spawn 'riverctl set-view-tags ${tag} && riverctl set-focused-tags ${tag}'
+              riverctl map normal Super+Control ${num} toggle-focused-tags ${tag}
+              riverctl map normal Super+Shift+Control ${num} toggle-viev-tags ${tag}
+            ''
+          ) 9
+        )}
+        #change pointer to yours from riverctl list-inputs
+        riverctl input 'pointer-2362-12300-ASUP1415:00_093A:300C_Touchpad' natural-scroll enabled
+        riverctl input 'pointer-2362-12300-ASUP1415:00_093A:300C_Touchpad' tap enabled
+        riverctl input 'pointer-2362-12300-ASUP1415:00_093A:300C_Touchpad' accel_profile enabled
+        riverctl map normal None Print spawn 'grim - | wl-copy'
+        riverctl map normal Shift Print spawn 'grim -g "$(slurp)" - | wl-copy'
+        riverctl spawn 'rivertile -outer-padding 0 -view-padding 0 -main-ratio 0.5'
+        riverctl output-layout rivertile
+      '';
   };
 }

@@ -5,7 +5,6 @@
   config,
   lib,
   pkgs,
-  pinned-firmware,
   ...
 }:
 {
@@ -16,7 +15,7 @@
     ./modules/bundle.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lts.cachyOverride {mArch = "ZEN4";};
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride { mArch = "ZEN4"; };
 
   services.scx = {
     enable = true;
@@ -25,10 +24,15 @@
       "--autopilot"
     ];
 
-   package = pkgs.scx.full;
- };
+    package = pkgs.scx_git.rustscheds;
+  };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  nix.settings.warn-dirty = false;
 
   security.polkit.enable = true;
 
@@ -45,7 +49,7 @@
 
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   networking.hostName = "zenbook";
 

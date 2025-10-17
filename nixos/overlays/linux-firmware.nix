@@ -1,7 +1,7 @@
 final: prev:
 
 {
-  linux-firmware = prev.linux-firmware.overrideAttrs (old: rec {
+  linux-firmware = prev.linux-firmware.overrideAttrs (old: {
     version = "20250808";
     src = prev.fetchurl {
       url = "https://kernel.org/pub/linux/kernel/firmware/linux-firmware-20250808.tar.gz";

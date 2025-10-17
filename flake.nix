@@ -14,38 +14,41 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-  in {
-    nixosConfigurations.zenbook = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./nixos/configuration.nix
-        inputs.chaotic.nixosModules.default
-        inputs.spicetify-nix.nixosModules.spicetify
-        {
-          nixpkgs.overlays = [
-            (import ./nixos/overlays/linux-firmware.nix)
-          ];
-        }
-      ];
-    };
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+    in
+    {
+      nixosConfigurations.zenbook = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./nixos/configuration.nix
+          inputs.chaotic.nixosModules.default
+          inputs.spicetify-nix.nixosModules.spicetify
+          {
+            nixpkgs.overlays = [
+              (import ./nixos/overlays/linux-firmware.nix)
+            ];
+          }
+        ];
+      };
 
-    homeConfigurations.halix = home-manager.lib.homeManagerConfiguration rec {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = {inherit inputs;};
-      modules = [
-        ./home-manager/home.nix
-        inputs.chaotic.homeManagerModules.default
-        {nix.package = pkgs.nix;}
-      ];
-    };
+      homeConfigurations.halix = home-manager.lib.homeManagerConfiguration rec {
+        pkgs = nixpkgs.legacyPackages.${system};
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          ./home-manager/home.nix
+          inputs.chaotic.homeManagerModules.default
+          { nix.package = pkgs.nix; }
+        ];
+      };
 
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
-  };
+      formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+    };
 }

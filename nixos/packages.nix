@@ -15,6 +15,7 @@
     vlc
     prismlauncher
     wine
+    nil
 
     # cli
     fastfetch

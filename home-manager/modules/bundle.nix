@@ -7,8 +7,8 @@
     ./rofi.nix
     ./river.nix
     ./dunst.nix
-    ./swayidle.nix
-    ./swaylock.nix
+    ./hypridle.nix
+    ./hyprlock.nix
     ./starship.nix
   ];
 }

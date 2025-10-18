@@ -1,4 +1,10 @@
-{ pkgs, config, lib, ... }: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -8,11 +14,12 @@
     shellAliases =
       let
         flakePath = "~/nix";
-      in {
+      in
+      {
         rebuild = "sudo nixos-rebuild switch --flake ${flakePath}";
         hms = "home-manager switch --flake ${flakePath}";
-        start-river = "XDG_CURRENT_DESKTOP=river dbus-run-session river";
-    };
+        start-river = "XDG_CURRENT_DESKTOP=river river";
+      };
     initContent = "
       fastfetch
     ";

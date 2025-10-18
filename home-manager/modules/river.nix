@@ -84,7 +84,7 @@
       spawn = [
         "kanshi"
         "waybar"
-        "sway-audio-idle-inhibit"
+        "hypridle"
         "'wbg ~/.wallpapers/black.png'"
       ];
       keyboard-layout = "pl";

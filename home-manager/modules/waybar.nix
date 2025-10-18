@@ -6,91 +6,77 @@ _: {
         outputs = [
           "eDP-1"
         ];
-      layer = "bottom";
-      position = "top";
-      modules-left = [ "river/tags" "custom/playerctl" "custom/audio_idle_inhibitor" ];
-      modules-center = [ "clock" ];
-      modules-right = [ "backlight" "wireplumber" "battery" "network" "tray" ];
+        layer = "bottom";
+        position = "top";
+        modules-left = [
+          "river/tags"
+          "custom/playerctl"
+        ];
+        modules-center = [ "clock" ];
+        modules-right = [
+          "backlight"
+          "wireplumber"
+          "battery"
+          "network"
+          "tray"
+        ];
 
-      "custom/audio_idle_inhibitor" = {
-      format = "{icon}";
-      exec = "sway-audio-idle-inhibit --dry-print-both-waybar";
-      exec-if = "which sway-audio-idle-inhibit";
-      return-type = "json";
-      format-icons = {
-			output = "";
-			input = "";
-			output-input = "  ";
-			none = "";
-			  };
-      };
+        "river/tags" = {
+          hide-vacant = true;
+          num-tag = 9;
+          tooltip = false;
+        };
 
-      "custom/playerctl" = {
-        format = "<span>{}</span>";
-        return-type = "json";
-        max-length = 40;
-        exec = "playerctl -a metadata --format '{\"text\": \"󰝚 {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
-        on-click = "playerctl play-pause";
-        on-click-right = "playerctl next";
-        tooltip = false;
-      };
-
-      "river/tags" = {
-        hide-vacant = true;
-        num-tag = 9;
-        tooltip = false;
-      };
-
-      "network" = {
+        "network" = {
           format-wifi = "  {bandwidthDownBits}";
           format-ethernet = "󰈀 {bandwidthDownBits}";
           format-disconnected = "󰤮  No Network";
           interval = 5;
           tooltip = false;
-      };
-
-      "backlight" = {
-        format = " {percent}%";
-        spacing = 0;
-        tooltip = false;
-      };
-      "tray" = {
-        spacing = 0;
-        tooltip = false;
-      };
-      "clock" = {
-        format = "󰅐 {:%H:%M}";
-        tooltip = false;
-      };
-      "wireplumber" = {
-        scroll-step = 1;
-        max-volume = 100;
-        format = "{icon} {volume}%";
-        format-icons = [
-          ""
-          ""
-          " "
-        ];
-        format-muted = " ";
-        tooltip = false;
-        on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-      };
-      "battery" = {
-        states = {
-          "warning" = 30;
-          "critical" = 15;
         };
-        format = "{icon} {capacity}%";
-        format-charging = "󰂄 {capacity}%";
-        format-plugged = "󰂄 {capacity}%";
-        format-alt = "{icon} {time}";
-        format-full = "󱈑 {capacity}%";
-        format-icons = [
-          "󱊡"
-          "󱊢"
-          "󱊣"
-        ];
-      };
+
+        "backlight" = {
+          format = " {percent}%";
+          spacing = 0;
+          tooltip = false;
+        };
+        "tray" = {
+          spacing = 0;
+          tooltip = false;
+        };
+        "clock" = {
+          format = "󰅐 {:%H:%M}";
+          tooltip = false;
+        };
+        "wireplumber" = {
+          scroll-step = 1;
+          max-volume = 100;
+          format = "{icon} {volume}%";
+          format-icons = [
+            ""
+            ""
+            " "
+          ];
+          format-muted = " ";
+          tooltip = false;
+          on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        };
+        "battery" = {
+          states = {
+            "warning" = 30;
+            "critical" = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-plugged = "󰂄 {capacity}%";
+          format-alt = "{icon} {time}";
+          format-full = "󱈑 {capacity}%";
+          format-icons = [
+            "󱊡"
+            "󱊢"
+            "󱊣"
+          ];
+        };
       };
     };
     style = ''

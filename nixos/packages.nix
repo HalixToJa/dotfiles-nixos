@@ -1,10 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  ...
+}:
+{
   nixpkgs.config = {
     allowUnfree = true;
   };
 
   environment.systemPackages = with pkgs; [
-    (discord.override {withVencord = true;})
+    (discord.override { withVencord = true; })
     librewolf-bin
     strawberry
     pinta

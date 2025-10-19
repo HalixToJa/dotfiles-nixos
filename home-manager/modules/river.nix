@@ -52,8 +52,8 @@
       map = {
         normal = {
           "Super Q" = "close";
-          "Super Return" = "spawn kitty";
-          "Super Space" = "spawn 'rofi -show drun'";
+          "Super Return" = "spawn 'uwsm app -- kitty'";
+          "Super Space" = "spawn 'uwsm app -- rofi -show drun'";
           "Super+Shift E" = "exit";
           "Super F" = "toggle-fullscreen";
           "Super G" = "toggle-float";
@@ -82,10 +82,10 @@
         };
       };
       spawn = [
-        "kanshi"
-        "waybar"
-        "hypridle"
-        "'wbg ~/.wallpapers/black.png'"
+        "'systemctl --user enable --now hypridle.service'"
+        "'uwsm app -- kanshi'"
+        "'uwsm app -- waybar'"
+        "'uwsm app -- wbg ~/.wallpapers/black.png'"
       ];
       keyboard-layout = "pl";
     };

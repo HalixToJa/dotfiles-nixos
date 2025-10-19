@@ -11,5 +11,6 @@
     ./river.nix
     ./waydroid.nix
     ./printing.nix
+    ./nh.nix
   ];
 }

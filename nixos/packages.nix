@@ -29,7 +29,7 @@
     s-tui
     cmatrix
     brightnessctl
-    linuxKernel.packages.linux_6_12.cpupower
+    linuxKernel.packages.linux_6_17.cpupower
     bash
     wireplumber
     tree

@@ -9,7 +9,6 @@
     ./spicetify.nix
     ./firewall.nix
     ./river.nix
-    ./waydroid.nix
     ./printing.nix
     ./nh.nix
   ];

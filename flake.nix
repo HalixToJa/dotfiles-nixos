@@ -33,7 +33,6 @@
           inputs.spicetify-nix.nixosModules.spicetify
           {
             nixpkgs.overlays = [
-              (import ./nixos/overlays/linux-firmware.nix)
             ];
           }
         ];

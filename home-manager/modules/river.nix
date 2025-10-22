@@ -6,7 +6,6 @@
     wl-clipboard
     playerctl
     kdePackages.dolphin
-    sway-audio-idle-inhibit
     wbg
   ];
   services.kanshi = {
@@ -68,7 +67,6 @@
           "Super Right" = "focus-view right";
           "Super Down" = "focus-view down";
           "Super Up" = "focus-view up";
-
         };
       };
       rule-add = {
@@ -117,6 +115,9 @@
         riverctl map normal Shift Print spawn 'grim -g "$(slurp)" - | wl-copy'
         riverctl spawn 'rivertile -outer-padding 0 -view-padding 0 -main-ratio 0.5'
         riverctl output-layout rivertile
+        riverctl map normal Super+Shift Left swap previous
+        riverctl map normal Super+Shift Right swap next
+
       '';
   };
 }

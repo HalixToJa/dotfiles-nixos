@@ -102,7 +102,7 @@ _: {
       }
 
       window#waybar {
-        background-image: linear-gradient(to bottom, #000000 100%);
+        background-color: #000000;
         border-style: none;
       }
 
@@ -139,7 +139,8 @@ _: {
         color: #e9ecef;
       }
       #tray menu menuitem {
-        color: #867089;
+        background-color: #000000;
+        color: #495057;
       }
       #tray menu menuitem:hover {
         color: #e9ecef;
@@ -175,8 +176,7 @@ _: {
       #battery.warning,
       #battery.critical,
       #battery.urgent {
-        color: #e9ecef;
-        background-color: #fc4649;
+        color: #fc4649;
       }
       #backlight {
         color: #e9ecef;

@@ -117,7 +117,8 @@
         riverctl output-layout rivertile
         riverctl map normal Super+Shift Left swap previous
         riverctl map normal Super+Shift Right swap next
-
+        riverctl map-pointer normal Mod4 BTN_RIGHT resize-view
+        riverctl map-pointer normal Alt BTN_LEFT move-view
       '';
   };
 }

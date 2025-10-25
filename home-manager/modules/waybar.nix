@@ -21,6 +21,15 @@ _: {
           "tray"
         ];
 
+        "custom/playerctl" = {
+          format = "<span>{}</span>";
+          return-type = "json";
+          max-length = 40;
+          exec = "playerctl -a metadata --format '{\"text\": \"󰝚 {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+          on-click = "playerctl play-pause";
+          on-click-right = "playerctl next";
+        };
+
         "river/tags" = {
           hide-vacant = true;
           num-tag = 9;

@@ -6,6 +6,6 @@ _: {
   };
 
   imports = [
-    ./modules/bundle.nix
+    ./modules
   ];
 }

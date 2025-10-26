@@ -12,12 +12,10 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./packages.nix
-    ./modules/bundle.nix
+    ./modules
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride { mArch = "ZEN4"; };
-
-  boot.kernelParams = [ "mt7921_common.disable_clc=1" ];
 
   services.scx = {
     enable = true;

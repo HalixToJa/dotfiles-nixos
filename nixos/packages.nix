@@ -45,7 +45,7 @@
     maple-mono.truetype
     maple-mono.NF-unhinted
     maple-mono.NF-CN-unhinted
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     noto-fonts-cjk-sans
     noto-fonts
     dm-mono

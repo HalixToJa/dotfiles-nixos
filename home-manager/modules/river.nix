@@ -84,6 +84,8 @@
         "'uwsm app -- kanshi'"
         "'uwsm app -- waybar'"
         "'uwsm app -- wbg ~/.wallpapers/black.png'"
+        "'xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2'"
+        "'xrdb ~/.Xresources'"
       ];
       keyboard-layout = "pl";
     };

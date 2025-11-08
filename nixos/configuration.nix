@@ -15,7 +15,7 @@
     ./modules
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride { mArch = "ZEN4"; };
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
 
   services.scx = {
     enable = true;

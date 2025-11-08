@@ -31,10 +31,8 @@
           ./nixos/configuration.nix
           inputs.chaotic.nixosModules.default
           inputs.spicetify-nix.nixosModules.spicetify
-          {
-            nixpkgs.overlays = [
-            ];
-          }
+          ./nixos/overlays/wlroots.nix
+          ./nixos/overlays/xwayland.nix
         ];
       };
 

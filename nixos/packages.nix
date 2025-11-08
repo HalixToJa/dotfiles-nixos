@@ -20,6 +20,8 @@
     prismlauncher
     wine
     nil
+    xorg.xprop
+    xorg.xrdb
 
     # cli
     fastfetch

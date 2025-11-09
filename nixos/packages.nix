@@ -22,6 +22,7 @@
     nil
     xorg.xprop
     xorg.xrdb
+    inxi
 
     # cli
     fastfetch

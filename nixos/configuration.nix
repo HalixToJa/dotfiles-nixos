@@ -24,7 +24,7 @@
       "--autopilot"
     ];
 
-    package = pkgs.scx_git.rustscheds;
+    package = pkgs.scx.rustscheds;
   };
 
   nix.settings.experimental-features = [

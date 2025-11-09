@@ -10,5 +10,8 @@
     ./hypridle.nix
     ./hyprlock.nix
     ./starship.nix
+    ./xresources.nix
+    ./uwsm.nix
+    ./kanshi.nix
   ];
 }

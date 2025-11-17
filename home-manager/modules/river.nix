@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 {
   home.packages = with pkgs; [
     grim
@@ -53,7 +56,7 @@
         "'systemctl --user enable --now hypridle.service'"
         "'uwsm app -- kanshi'"
         "'uwsm app -- waybar'"
-        "'uwsm app -- wbg ~/.wallpapers/black.png'"
+        "'uwsm app -- wbg ~/.wallpapers/wallpaper2.png'"
         "'xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2'"
         "'xrdb ~/.config/.Xresources'"
       ];

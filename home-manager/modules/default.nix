@@ -1,4 +1,4 @@
-{
+_: {
   imports = [
     ./zsh.nix
     ./helix.nix
@@ -13,5 +13,6 @@
     ./xresources.nix
     ./uwsm.nix
     ./kanshi.nix
+    ./qt.nix
   ];
 }

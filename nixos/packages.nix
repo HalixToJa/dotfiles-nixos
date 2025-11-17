@@ -22,7 +22,10 @@
     nil
     xorg.xprop
     xorg.xrdb
+    dpms-off
     inxi
+    zig
+    zls
 
     # cli
     fastfetch

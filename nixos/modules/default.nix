@@ -1,4 +1,4 @@
-{
+_: {
   imports = [
     ./bootloader.nix
     ./user.nix
@@ -11,5 +11,7 @@
     ./river.nix
     ./printing.nix
     ./nh.nix
+    ./uwsm.nix
+    ./xdgportal.nix
   ];
 }

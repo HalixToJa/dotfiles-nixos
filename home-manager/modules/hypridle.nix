@@ -21,7 +21,7 @@ _: {
         }
         {
           timeout = 300;
-          on-timeout = "brightnessctl set 0";
+          on-timeout = "dpms-off";
           on-resume = "brightnessctl -r";
         }
         {

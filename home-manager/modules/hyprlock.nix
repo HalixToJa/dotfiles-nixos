@@ -3,9 +3,9 @@ _: {
     enable = true;
     extraConfig = ''
       $text_color = rgba(233, 236, 239, 1)
-      $entry_background_color = rgba(41000311)
-      $entry_border_color = rgba(896E6C55)
-      $entry_color = rgba(FFDAD6FF)
+      $entry_background_color = rgba(0, 0, 0, 1)
+      $entry_border_color = rgba(233, 236, 239, 1)
+      $entry_color = rgba(233, 236, 239, 1)
       $font_family = DM Mono
       $font_family_clock = DM Mono
       $font_material_symbols = DM Mono

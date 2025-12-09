@@ -3,7 +3,7 @@ _: {
     enable = true;
     font = {
       name = "Maple Mono";
-      size = 9;
+      size = 11;
     };
   };
 }

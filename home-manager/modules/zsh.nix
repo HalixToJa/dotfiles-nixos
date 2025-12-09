@@ -21,7 +21,7 @@ _: {
         start-river = "XDG_CURRENT_DESKTOP=river river";
       };
     initContent = "
-      fastfetch
+      fastfetch -c ~/randomconfigs/fetch.jsonc
     ";
   };
 }

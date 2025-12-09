@@ -50,7 +50,7 @@ _: {
           tooltip = false;
         };
         "tray" = {
-          spacing = 0;
+          spacing = 6;
           tooltip = false;
         };
         "clock" = {
@@ -90,7 +90,7 @@ _: {
     };
     style = ''
       * {
-        font-family: DM Mono;
+        font-family: Maple Mono;
         font-size: 14px;
         background: transparent;
       }

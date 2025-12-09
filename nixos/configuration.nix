@@ -13,7 +13,7 @@
     ./modules
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride { mArch = "ZEN4"; };
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto-znver4;
 
   services.scx = {
     enable = true;
@@ -29,6 +29,12 @@
     "nix-command"
     "flakes"
   ];
+
+  zramSwap = {
+    enable = true;
+    priority = 100;
+    memoryPercent = 50;
+  };
 
   nix.settings.warn-dirty = false;
 

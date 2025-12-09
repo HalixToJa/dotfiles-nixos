@@ -94,6 +94,13 @@
         riverctl map normal Super+Shift Right swap next
         riverctl map-pointer normal Mod4 BTN_RIGHT resize-view
         riverctl map-pointer normal Alt BTN_LEFT move-view
+        riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
+        riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+
+        #specific apps settings:
+        riverctl rule-add -app-id 'steam' float
+        riverctl rule-add -app-id 'steam' -title 'Steam' no-float
+
       '';
   };
 }

@@ -14,5 +14,6 @@ _: {
     ./uwsm.nix
     ./kanshi.nix
     ./qt.nix
+    ./fuzzel.nix
   ];
 }

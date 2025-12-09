@@ -26,6 +26,7 @@
     inxi
     zig
     zls
+    picard
 
     # cli
     fastfetch
@@ -41,7 +42,9 @@
     tree
     sbctl
     usbutils
+    pciutils
     glib
+    unzip
 
     #core
     home-manager

@@ -66,7 +66,7 @@ _: {
             ""
             " "
           ];
-          format-muted = " ";
+          format-muted = "";
           tooltip = false;
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };

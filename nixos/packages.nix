@@ -7,6 +7,8 @@
     allowUnfree = true;
   };
 
+  programs.nix-ld.enable = true;
+
   environment.systemPackages = with pkgs; [
     (discord.override { withVencord = true; })
     librewolf-bin
@@ -27,6 +29,8 @@
     zig
     zls
     picard
+
+    uv
 
     # cli
     fastfetch

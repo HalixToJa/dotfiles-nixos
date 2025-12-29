@@ -101,6 +101,9 @@
         riverctl rule-add -app-id 'steam' float
         riverctl rule-add -app-id 'steam' -title 'Steam' no-float
 
+        riverctl rule-add -title Nicotine+ tags 32
+        riverctl spawn nicotine
+
       '';
   };
 }

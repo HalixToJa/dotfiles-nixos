@@ -13,5 +13,6 @@ _: {
     ./nh.nix
     ./uwsm.nix
     ./xdgportal.nix
+    ./waydroid.nix
   ];
 }

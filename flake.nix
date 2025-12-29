@@ -4,9 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nixunstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    nyx-loner.url = "github:lonerOrz/nyx-loner";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -18,6 +20,7 @@
     {
       nixpkgs,
       home-manager,
+      nixunstable,
       ...
     }@inputs:
     let
@@ -29,10 +32,17 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./nixos/configuration.nix
-          inputs.chaotic.nixosModules.default
           inputs.spicetify-nix.nixosModules.spicetify
+          inputs.nyx-loner.nixosModules.default
           ./nixos/overlays/wlroots.nix
           ./nixos/overlays/xwayland.nix
+          {
+            _module.args = {
+              nixunstablepkgs = import nixunstable {
+                inherit system;
+              };
+            };
+          }
         ];
       };
 
@@ -41,7 +51,6 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           ./home-manager/home.nix
-          inputs.chaotic.homeManagerModules.default
           { nix.package = pkgs.nix; }
         ];
       };

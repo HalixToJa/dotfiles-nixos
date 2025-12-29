@@ -18,6 +18,4 @@
   hardware.steam-hardware.enable = true;
 
   programs.gamemode.enable = true;
-
-  programs.gamescope.package = pkgs.gamescope_git;
 }

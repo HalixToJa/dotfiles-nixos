@@ -14,5 +14,6 @@ _: {
     ./uwsm.nix
     ./xdgportal.nix
     ./waydroid.nix
+    ./disable-speechd.nix
   ];
 }

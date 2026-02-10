@@ -4,6 +4,7 @@
 }:
 {
   home.packages = with pkgs; [
+    wideriver
     grim
     slurp
     wl-clipboard
@@ -88,8 +89,8 @@
         riverctl input 'pointer-2362-12300-ASUP1415:00_093A:300C_Touchpad' accel_profile enabled
         riverctl map normal None Print spawn 'grim - | wl-copy'
         riverctl map normal Shift Print spawn 'grim -g "$(slurp)" - | wl-copy'
-        riverctl spawn 'rivertile -outer-padding 0 -view-padding 0 -main-ratio 0.5'
-        riverctl output-layout rivertile
+        riverctl default-layout wideriver
+        riverctl send-layout-cmd wideriver "--layout left --stack dwindle --count 1 --ratio 0.5"
         riverctl map normal Super+Shift Left swap previous
         riverctl map normal Super+Shift Right swap next
         riverctl map-pointer normal Mod4 BTN_RIGHT resize-view
@@ -104,6 +105,7 @@
         riverctl rule-add -title Nicotine+ tags 32
         riverctl spawn nicotine
 
+        riverctl spawn wideriver
       '';
   };
 }

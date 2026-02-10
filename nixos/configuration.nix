@@ -13,30 +13,32 @@
     ./modules
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto-znver4;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-zen4;
 
   services.scx = {
     enable = true;
     scheduler = "scx_lavd";
+    package = pkgs.scx.rustscheds;
     extraArgs = [
       "--autopilot"
     ];
-
-    package = pkgs.scx.rustscheds;
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    warn-dirty = false;
+    substituters = [ "https://attic.xuyh0120.win/lantian" ];
+    trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
+  };
 
   zramSwap = {
     enable = true;
     priority = 100;
     memoryPercent = 50;
   };
-
-  nix.settings.warn-dirty = false;
 
   security.polkit.enable = true;
 

@@ -15,5 +15,6 @@ _: {
     ./xdgportal.nix
     ./waydroid.nix
     ./disable-speechd.nix
+    ./firefox.nix
   ];
 }

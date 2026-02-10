@@ -11,7 +11,8 @@
 
   environment.systemPackages = with pkgs; [
     (discord.override { withVencord = true; })
-    librewolf-bin
+    heroic
+    protonup-qt
     strawberry
     pinta
     nicotine-plus
@@ -40,7 +41,7 @@
     s-tui
     cmatrix
     brightnessctl
-    linuxKernel.packages.linux_6_17.cpupower
+    linuxKernel.packages.linux_6_18.cpupower
     bash
     wireplumber
     tree

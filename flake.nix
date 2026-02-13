@@ -12,6 +12,10 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -19,6 +23,7 @@
       nixpkgs,
       home-manager,
       nix-cachyos-kernel,
+      nur,
       ...
     }@inputs:
     let
@@ -33,6 +38,8 @@
           inputs.spicetify-nix.nixosModules.spicetify
           ./nixos/overlays/wlroots.nix
           ./nixos/overlays/xwayland.nix
+          nur.modules.nixos.default
+          nur.legacyPackages."${system}".repos.iopq.modules.xraya
           (
             { pkgs, ... }:
             {
